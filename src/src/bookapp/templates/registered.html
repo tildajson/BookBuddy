@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<body style="background-color: #1A312B;">
+    <img src="../static/book-stack.jpg" class="img-fluid" alt="...">
+<div class="card card-transparent text-center position-absolute top-50 start-50 translate-middle" style="width: 30em; height: 25em; background-color: rgba(82, 103, 77, 0.8);">
+    <div class="card-body">
+        <h2 class="card-title mb-2 mt-4" style="color: #EEEAE7; font-family: 'Gentium Book Plus';">Welcome to BookBuddy, </br>{{ user.first_name }}!</h2>
+      <p class="card-text">
+        <figure>
+            <blockquote class="blockquote" style="color: #EEEAE7; font-family: 'Gentium Book Plus';">
+              <p>I have lived a thousand lives and I've loved a thousand loves. I've walked on distant worlds and seen the end of time.</br>
+                <b>Because I read.</b></p>
+            </blockquote>
+            <figcaption class="blockquote-footer" style="color: #EEEAE7; font-family: 'Gentium Book Plus';">
+              George R.R Martin
+            </figcaption>
+          </figure>
+      </p>
+      <a href="{% url "login" %}" class="btn btn-dark mx-auto mt-1" style="font-family: 'Gentium Book Plus';">Return to login</a>
+    </div>
+  </div>
+</body>
+{% endblock %}

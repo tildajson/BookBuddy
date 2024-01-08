@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+<body style="background-color: #000;">
+<img src="../static/lamp.jpg" class="img-fluid" style="background-color: black;">
+  <div class="card-transparent text-center position-absolute top-50 start-50 translate-middle" style="background-color: rgba(82, 103, 77, 0.5); width: 30em; height: 27em; border-radius: 20px;">
+    <div class="card-body">
+    {% if request.user.is_authenticated %}
+        <script>window.location.replace("/");</script>
+    {% else %}
+
+      <h2 class="card-title mb-4 mt-5" style="color: #EEEAE7; font-family: 'Gentium Book Plus';">Log in to your account</h2>
+      <form method="POST" action="{% url 'login' %}">
+        {% csrf_token %}
+        <h6 class="card-subtitle mb-1 mt-3 text-body-secondary" style="color: #EEEAE7; font-family: 'Gentium Book Plus';">Username</h6>{{ form.username }}
+        <h6 class="card-subtitle mb-1 mt-3 text-body-secondary" style="color: #EEEAE7; font-family: 'Gentium Book Plus';">Password</h6>{{ form.password }}
+      </br>
+      {% if form.errors %}
+
+      <p style=" margin-bottom: -8px; color: #F5F7F5;">
+        Invalid credentials
+      </p>
+
+  {% endif %}
+        <input id="login-btn" type="submit" class="button" value="LOG IN" style="margin-top: 15px; background: #180E09; color: #EEEAE7; border: 1px solid black; padding: 6px 10px; border-radius: 10px; width: 6em; font-family: 'Gentium Book Plus';">
+        <p class="mt-3" style="color: #EEEAE7; font-family: 'Gentium Book Plus';">Don't have an account yet? </br><a href="/register" style="color: #E3E2E2; font-family: 'Gentium Book Plus';">Create an account</a></p>
+    </form>
+
+    </div>
+  </div>
+
+  {% endif %}
+</div>
+</body>
+    {% comment %} {% if request.user.is_authenticated %}
+        <script>window.location.replace("/");</script>
+    {% else %}
+        <h3 class="mt-3">Login to account</h3>
+        <div class="inputbox">
+            <form method="POST" action="{% url 'login' %}">
+                {{ form.as_p }}
+                {% csrf_token %}
+                <input type="submit" class="button" value="Sign in">
+                <p>Don't have an account yet? <a href="/register">Create an account here.</a></p>
+            </form>
+        </div> <!-- end of class="inputbox" -->
+    </div>
+    {% endif %} {% endcomment %}
+{% endblock %}

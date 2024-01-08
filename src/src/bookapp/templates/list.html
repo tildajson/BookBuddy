@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block form_action %}
+    {% url 'viewList' all_books.id %}
+{% endblock %}
+
+{% block book_table %}
+    <table id="id_book_table" class="table">
+        <th style="color:#F5F7F5">Title</th>
+        <th style="color:#F5F7F5">Current page</th>
+        <th style="color:#F5F7F5">Total pages</th>
+        {% for book in all_books.book_set.all %}
+            <tr>
+                <td>{{ book.title }}</td>
+                <td>{{ book.current_page }}</td>
+                <td>{{ book.total_pages }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
+
+{% block chart_js %}
+    <div style="width: 75%">
+      <canvas id="bar-chart"></canvas>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script>
+        Chart.defaults.global.defaultFontFamily = "Gentium Book Plus";
+        Chart.defaults.global.defaultFontColor = 'black';
+        new Chart(document.getElementById("bar-chart"), {
+            type: 'horizontalBar',
+            data: {
+                labels: {{ labels|safe }},
+                datasets: [{
+                    data: {{ data|safe }},
+                    label: "%",
+                    backgroundColor: ["#8D2A00", "#B55318", "#BF6730", "#8D2A00",
+                                        "#B55318", "#BF6730","#8D2A00", "#B55318",
+                                        "#BF6730","#8D2A00", "#B55318", "#BF6730",
+                                        "#8D2A00", "#B55318", "#BF6730", "#8D2A00",
+                                        "#B55318", "#BF6730", "#8D2A00", "#B55318",
+                                        "#BF6730", "#8D2A00", "#B55318", "#BF6730",
+                                        "#8D2A00", "#B55318", "#BF6730", "#8D2A00",
+                                        "#B55318", "#BF6730", "#8D2A00", "#B55318",
+                                        "#BF6730", "#8D2A00", "#B55318", "#BF6730"]
+                          }]
+                  },
+            options: {
+                legend: {display: false},
+                title: {
+                        display: true,
+                        fontFamily: "Gentium Book Plus",
+                       },
+                scales: {
+                    xAxes: [{
+                        ticks: {
+                            beginAtZero:true,
+                            min: 0,
+                            max: 100,
+                            stepSize: 5,
+                            fontFamily: "Gentium Book Plus",
+                               }
+                           }]
+                       }
+                   }
+               });
+    </script>
+{% endblock %}

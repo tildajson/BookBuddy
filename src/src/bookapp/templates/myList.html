@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+{% block form_action %}
+    {% url 'myList' %}
+{% endblock %}
+
+{% block content %}
+<div class="container my-5 position-relative">
+
+    <footer class="bg-dark text-center text-white">
+    <!-- Grid container -->
+
+    <!-- Copyright -->
+    <div class="text-center p-3 position-absolute bottom-0 end-0" style="background-color: rgba(0, 0, 0, 0.2);">
+      © 2024 Tilda Johansson
+    </div>
+    <!-- Copyright -->
+      </footer>
+    </div>
+{% endblock %}
+
+{% block book_table %}
+    <table id="id_book_table" class="table">
+        <th style="color:#F5F7F5">Title</th>
+        <th style="color:#F5F7F5">Current page</th>
+        <th style="color:#F5F7F5">Total pages</th>
+        {% for book in all_books.book_set.all %}
+            <tr>
+                <td>{{ book.title }}</td>
+                <td>{{ book.current_page }}</td>
+                <td>{{ book.total_pages }}</td>
+                <td>
+                    <form method="POST" action="{% url 'deleteBook' book.pk %}">
+                        {% csrf_token %}
+                        <input type="image" class="delete_button" src="../static/x.png" value="Delete" style="height: 17px; margin-top: 3px;">
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
+
+{% block chart_js %}
+    <div style="width: 75%">
+      <canvas id="bar-chart"></canvas>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script>
+        Chart.defaults.global.defaultFontFamily = "Gentium Book Plus";
+        Chart.defaults.global.defaultFontColor = '#F5F7F5';
+        new Chart(document.getElementById("bar-chart"), {
+            type: 'horizontalBar',
+            data: {
+                labels: {{ labels|safe }},
+                datasets: [{
+                    data: {{ data|safe }},
+                    label: "%",
+                    backgroundColor: ["#8D2A00", "#B55318", "#BF6730", "#8D2A00",
+                                        "#B55318", "#BF6730","#8D2A00", "#B55318",
+                                        "#BF6730","#8D2A00", "#B55318", "#BF6730",
+                                        "#8D2A00", "#B55318", "#BF6730", "#8D2A00",
+                                        "#B55318", "#BF6730", "#8D2A00", "#B55318",
+                                        "#BF6730", "#8D2A00", "#B55318", "#BF6730",
+                                        "#8D2A00", "#B55318", "#BF6730", "#8D2A00",
+                                        "#B55318", "#BF6730", "#8D2A00", "#B55318",
+                                        "#BF6730", "#8D2A00", "#B55318", "#BF6730"]
+                          }]
+                  },
+            options: {
+                legend: {display: false},
+                title: {
+                        display: false
+                       },
+                scales: {
+                    xAxes: [{
+                        ticks: {
+                            beginAtZero:true,
+                            min: 0,
+                            max: 100,
+                            stepSize: 5,
+                            fontFamily: "Gentium Book Plus",
+                               }
+                           }]
+                       }
+                   }
+               });
+    </script>
+{% endblock %}

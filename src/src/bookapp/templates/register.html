@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content%}
+<body style="background-color: #000;">
+<img src="../static/books.jpg" class="img-fluid">
+  <div class="card-transparent text-center position-absolute top-50 start-50 translate-middle" style="background-color: rgba(82, 103, 77, 0.5); width: 30em; height: 40em; border-radius: 20px;">
+    <div class="card-body">
+      <h2 class="card-title mb-2 mt-5" style="color: #EEEAE7; font-family: 'Gentium Book Plus';">Create an account</h2>
+      <form method="POST" action=".">
+    </br>
+    {% csrf_token %}
+    <h6 class="card-subtitle mb-1 text-body-secondary" style="color: #EEEAE7; font-family: 'Gentium Book Plus';">Username</h6>{{ form.username }}
+
+    <h6 class="card-subtitle mb-1 mt-3 text-body-secondary" style="color: #EEEAE7; font-family: 'Gentium Book Plus';">First Name</h6>{{ form.first_name }}
+
+    <h6 class="card-subtitle mb-1 mt-3 text-body-secondary" style="color: #EEEAE7; font-family: 'Gentium Book Plus';">Email</h6>{{ form.email }}
+
+    <h6 class="card-subtitle mb-1 mt-3 text-body-secondary" style="color: #EEEAE7; font-family: 'Gentium Book Plus';">Password</h6>{{ form.password1 }}
+
+    <h6 class="card-subtitle mb-1 mt-3 text-body-secondary" style="color: #EEEAE7; font-family: 'Gentium Book Plus';">Confirm Password</h6>{{ form.password2 }}
+    </br>
+
+        {% if messages %}
+          {% for message in messages %}
+            <div class="form-group has-error">
+              <div class="help-block" style="color: #F5F7F5;"> {{ message }} </div>
+            </div>
+          {% endfor %}
+        {% endif %}
+
+        <input type="submit" class="button" value="REGISTER" style="margin-top: 15px; background: #180E09; color: #EEEAE7; border: 1px solid black; padding: 6px 10px; border-radius: 10px; width: 7em; font-family: 'Gentium Book Plus';">
+        </form>
+        <p class="mt-3" style="color: #EEEAE7; font-family: 'Gentium Book Plus';">Already have an account? </br><a href="/login" style="color: #E3E2E2; font-family: 'Gentium Book Plus';">Return to login page</a></p>
+    </form>
+
+    </div>
+  </div>
+</body>
+{% endblock %}
