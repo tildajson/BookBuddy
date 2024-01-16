@@ -1,5 +1,5 @@
 asgiref==3.5.2
-Django==5.0.1
+Django==4.2.9
 django-selenium-login==2.0.0
 djangorestframework==3.14.0
 gunicorn==21.2.0
