@@ -28,10 +28,10 @@ SECRET_KEY = SECRET_KEY
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['web-production-7256.up.railway.app']
 
 CSRF_TRUSTED_ORIGINS = [
-    'web-production-7256.up.railway.app'
+    'https:web-production-7256.up.railway.app'
 ]
 
 
