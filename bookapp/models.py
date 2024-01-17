@@ -13,7 +13,7 @@ class AllBooks(models.Model):
 
 
 class Book(models.Model):
-    """Model for singular book."""
+    """Model for individual books."""
     title = models.TextField(blank=False)
     current_page = models.IntegerField(blank=False)
     total_pages = models.IntegerField(blank=False)

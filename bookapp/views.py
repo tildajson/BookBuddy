@@ -46,7 +46,7 @@ def view_list(request, all_books_id):
 
 @login_required
 def new_list(request):
-    """View for book list for a new user."""
+    """View for new user's book list."""
     form = BookForm(data=request.POST)
     if form.is_valid():
         all_books = AllBooks.objects.create()
@@ -137,8 +137,9 @@ def login_view(request):
 
 
 def logout_view(request):
+    """Log out user and redirect to login pagel."""
     logout(request)
-    return render(request, "logged_out.html")
+    return redirect(request, "/login")
 
 
 def delete_book(request, pk):
