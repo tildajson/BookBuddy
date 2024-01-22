@@ -4,7 +4,7 @@ A full stack reading tracker app designed to simplify users' reading experience.
 
 This app handles authentication, authorization, error handling and creating / deleting objects in a database.
 
-Machine learning book recommendation section in progress.
+Machine learning book recommendation section and full CRUD feature in progress.
 
 ## Tech Stack
 
