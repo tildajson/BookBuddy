@@ -18,6 +18,9 @@ Machine learning book recommendation section in progress.
 
 [Video demo](https://www.youtube.com/watch?v=TFzdeR5T1sE)
 
+![BookBuddy - Brave 2024-01-22 16_05_47](https://github.com/tildajson/BookBuddy/assets/130234732/2290ce9b-7c6b-444a-8247-e62a0655cfe3)
+![BookBuddy - Brave 2024-01-22 16_06_05](https://github.com/tildajson/BookBuddy/assets/130234732/fabd7c75-09d2-4fb1-b86d-36cb80ad55da)
+![BookBuddy - Brave 2024-01-22 16_06_44](https://github.com/tildajson/BookBuddy/assets/130234732/0a95f79e-952a-4c9a-8409-0450aeca1e04)
 
 ## Installation
 
