@@ -3,6 +3,8 @@
 
 
 {% block content %}
+
+<!-- Log in form -->
 <body style="background-color: #000;">
 <img src="../static/login.jpg" class="img-fluid">
   <div class="card-transparent text-center position-absolute top-50 start-50 translate-middle" style="background-color: rgba(82, 103, 77, 0.5); width: 30em; height: 27em; border-radius: 20px;">
@@ -17,6 +19,8 @@
         <h6 class="card-subtitle mb-1 mt-3 text-body-secondary" style="color: #EEEAE7; font-family: 'Gentium Book Plus';">Username</h6>{{ form.username }}
         <h6 class="card-subtitle mb-1 mt-3 text-body-secondary" style="color: #EEEAE7; font-family: 'Gentium Book Plus';">Password</h6>{{ form.password }}
       </br>
+
+      <!-- Error handling -->
       {% if form.errors %}
 
       <p style=" margin-bottom: -8px; color: #F5F7F5;">
@@ -34,6 +38,8 @@
   {% endif %}
 </div>
 </body>
+
+    <!-- Redirect to home page if user is logged in -->
     {% comment %} {% if request.user.is_authenticated %}
         <script>window.location.replace("/");</script>
     {% else %}
@@ -45,7 +51,7 @@
                 <input type="submit" class="button" value="Sign in">
                 <p>Don't have an account yet? <a href="/register">Create an account here.</a></p>
             </form>
-        </div> <!-- end of class="inputbox" -->
+        </div>
     </div>
     {% endif %} {% endcomment %}
 {% endblock %}
