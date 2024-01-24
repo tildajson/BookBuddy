@@ -2,6 +2,8 @@
 {% load static %}
 
 {% block content%}
+
+<!-- Register page -->
 <body style="background-color: #000;">
 <img src="../static/register.jpg" class="img-fluid">
   <div class="card-transparent text-center position-absolute top-50 start-50 translate-middle" style="background-color: rgba(82, 103, 77, 0.5); width: 30em; height: 40em; border-radius: 20px;">
@@ -20,7 +22,8 @@
 
     <h6 class="card-subtitle mb-1 mt-3 text-body-secondary" style="color: #EEEAE7; font-family: 'Gentium Book Plus';">Confirm Password</h6>{{ form.password2 }}
     </br>
-
+        
+        <!-- Error handling -->
         {% if messages %}
           {% for message in messages %}
             <div class="form-group has-error">
