@@ -10,6 +10,7 @@
         <title>BookBuddy</title>
     </head>
     <body>
+        <!-- Display logout button -->
         <div>
             {% if request.user.is_authenticated %}
                 <p id="greeting">Hello there, <b>{{ request.user.first_name }}</b>!</p>
@@ -22,6 +23,7 @@
                 <br />
             {% endif %}
 
+            <!-- Base of reading tracker form -->
             <div class="content">
                 <div class="jumbotron">
                     <div class="col-md-12">
@@ -43,12 +45,12 @@
                                     {% endif %}
                                 </form>
                             {% endif %}
-                        </div> <!-- end of class="inputbox" -->
-                    </div> <!-- end of class="col-md-12" -->
-                </div> <!-- end of class="jumbotron" -->
-            </div> <!-- end of class="content" -->
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-        </div> <!-- end of class="content" -->
+        </div>
         <div class="row">
             <div class="col-md-12 mx-auto">
                 <div class="col-md-8 mx-auto">
@@ -63,8 +65,8 @@
                     {% block content %}
                     {% endblock %}
                 </div>
-            </div> <!-- end of class="col-md-12 mx-auto" -->
-        </div> <!-- end of class="row" -->
+            </div>
+        </div>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     </body>
