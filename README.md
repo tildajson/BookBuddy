@@ -2,7 +2,7 @@
 
 A full stack reading tracker app inspired by Goodreads. This project is designed to simplify users' reading experience. It provides an easy and efficient way to keep track of the user's books in an accessible list, while the progress bar to track their reading progress helps users feel more motivated to finish the books.
 
-This app handles authentication, authorization, error handling and creating / deleting objects in a database.
+This app handles authentication, authorization, error handling and creating, deleting and updating objects in a database (CRUD).
 
 Machine learning book recommendation section in progress.
 
